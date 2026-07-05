@@ -134,27 +134,26 @@ Develop a FastAPI backend to process user requests, communicate with Google Gemi
 
 ## Objective
 
-Develop a modern, responsive, and user-friendly web interface for EduGenie using HTML, CSS, and Jinja2 templates. The interface enables students to access AI-powered educational features through a single integrated platform.
+Develop a responsive and user-friendly web interface for EduGenie using HTML, CSS, JavaScript, and Jinja2 templates.
 
 ## Features Completed
 
-- Responsive web interface using HTML5 and CSS3
-- Welcome section introducing EduGenie
+- Responsive HTML interface
+- Welcome section for EduGenie
 - Question Answering interface
 - Concept Explanation interface
 - Quiz Generation interface
 - Text Summarization interface
-- Personalized Learning Path interface
-- Learning task selection dropdown
-- User input form with textarea
-- AI response display section
-- Chat history display using Jinja2 templates
-- Dark Mode support
-- Clear Chat functionality
-- Copy Answer feature
-- Download Notes feature
-- Loading animation during AI response generation
-- Mobile-friendly responsive design
+- Learning Path interface
+- Task selection dropdown
+- User input form
+- AI response display
+- Chat history
+- Dark Mode
+- Clear Chat
+- Copy Answer
+- Download Notes
+- Loading animation
 
 ## Technologies Used
 
@@ -164,6 +163,30 @@ Develop a modern, responsive, and user-friendly web interface for EduGenie using
 - FastAPI
 - Jinja2 Templates
 
-## Outcome
+# Epic 3 - Live Integration
 
-Successfully developed a responsive and interactive frontend for EduGenie that provides a clean and intuitive user experience for accessing multiple AI-powered educational services.
+## Objective
+
+Integrate the frontend interface with the FastAPI backend to enable real-time communication with Google Gemini AI.
+
+## Features Completed
+
+- Connected HTML forms with FastAPI
+- POST request handling
+- User input processing
+- Google Gemini AI integration
+- Dynamic response rendering
+- Chat history management
+- Error handling
+- Jinja2 template rendering
+- Static file support
+
+## Technologies Used
+
+- Python
+- FastAPI
+- Google Gemini API
+- HTML5
+- CSS3
+- JavaScript
+- Jinja2 Templates
