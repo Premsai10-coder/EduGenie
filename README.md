@@ -190,3 +190,4 @@ Integrate the frontend interface with the FastAPI backend to enable real-time co
 - CSS3
 - JavaScript
 - Jinja2 Templates
+
