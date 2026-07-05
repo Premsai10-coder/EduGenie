@@ -138,22 +138,26 @@ Develop a responsive and user-friendly web interface for EduGenie using HTML, CS
 
 ## Features Completed
 
-- Responsive HTML interface
-- Welcome section for EduGenie
+- Professional AI-inspired user interface
+- Responsive web design for desktop and mobile
+- Modern navigation header
+- Interactive hero section
+- AI task selection interface
 - Question Answering interface
 - Concept Explanation interface
 - Quiz Generation interface
 - Text Summarization interface
 - Learning Path interface
-- Task selection dropdown
-- User input form
+- Dynamic chat interface
 - AI response display
 - Chat history
 - Dark Mode
-- Clear Chat
 - Copy Answer
 - Download Notes
+- Clear Chat
 - Loading animation
+- Smooth UI animations and transitions
+- Responsive cards and components
 
 ## Technologies Used
 
@@ -269,10 +273,10 @@ The EduGenie Learning Assistant was successfully executed in the local developme
 
 # Conclusion
 
-EduGenie is an AI-powered learning assistant developed to enhance the educational experience using Google Gemini AI. The project successfully integrates FastAPI, HTML, CSS, JavaScript, and Jinja2 templates to provide an interactive web application for students and self-learners.
+EduGenie is a modern AI-powered learning assistant developed using FastAPI and Google Gemini AI to provide an interactive educational experience.
 
-The application offers intelligent educational features including Question Answering, Concept Explanation, Quiz Generation, Text Summarization, and Personalized Learning Recommendations. The frontend and backend were successfully integrated, allowing users to interact with the AI in real time through a clean and responsive interface.
+The application offers intelligent features such as Question Answering, Concept Explanation, Quiz Generation, Text Summarization, and Personalized Learning Path recommendations through a professional, responsive web interface.
 
-The project was successfully tested in a local development environment using Uvicorn and FastAPI. Functional testing confirmed that all modules worked correctly and generated accurate AI-powered responses.
+The frontend was designed with HTML, CSS, JavaScript, and Jinja2 Templates, while FastAPI handles backend processing and Google Gemini AI generates intelligent educational responses. The application was successfully integrated, locally deployed, and functionally tested.
 
-Overall, EduGenie demonstrates the practical application of Generative AI in education by providing personalized, interactive, and efficient learning support. The modular architecture also makes the project scalable and easy to maintain for future enhancements.
+With its modular architecture, responsive design, and AI-powered capabilities, EduGenie provides a scalable foundation for future enhancements such as user authentication, persistent chat history, PDF learning support, and multilingual learning assistance.

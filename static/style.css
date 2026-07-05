@@ -1,107 +1,479 @@
-/* ============================= */
-/* EPIC 2 - Professional UI */
-/* ============================= */
+/* ================================================= */
+/* PART 1 - Professional AI Layout */
+/* ================================================= */
 
-.features{
-    width:85%;
-    max-width:1100px;
-    margin:25px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    text-align:center;
-    border-radius:15px;
-    font-size:18px;
-    font-weight:bold;
-    box-shadow:0 6px 15px rgba(0,0,0,.1);
+body{
+    margin:0;
+    padding:0;
+    background:#f5f7fb;
+    font-family:'Segoe UI',Arial,sans-serif;
+    color:#222;
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    background:#0B5ED7;
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 45px;
+
+    background:white;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+
+}
+
+.logo h1{
+
+    margin:0;
+
+    font-size:34px;
+
+    color:#2563eb;
+
+}
+
+.logo p{
+
+    margin-top:6px;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+.top-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.top-buttons button{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.top-buttons button:hover{
+
+    transform:scale(1.08);
+
+    background:#1d4ed8;
+
+}
+
+.hero{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+    text-align:center;
+
+}
+
+.hero h2{
+
+    font-size:52px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    max-width:850px;
+
+    margin:auto;
+
+    color:#666;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+.hero-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:50px;
+
+}
+
+.hero-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+.hero-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.container{
+
+    width:92%;
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 12px 40px rgba(0,0,0,.08);
+
+}
+
+@media(max-width:768px){
+
+.header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:20px;
+
+}
+
+.hero h2{
+
+    font-size:36px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+.hero-features{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+/* ================================================= */
+/* PART 2 - AI Chat Interface */
+/* ================================================= */
+
+/* Chat Form */
+
+#chatForm{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* Labels */
+
+label{
+    font-size:18px;
+    font-weight:600;
+    color:#2563eb;
+}
+
+/* Dropdown */
+
+select{
+    width:100%;
+    padding:16px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    background:#fff;
+    font-size:16px;
+    transition:.3s;
+}
+
+select:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 15px rgba(37,99,235,.20);
+}
+
+/* Textarea */
+
+textarea{
+    width:100%;
+    min-height:180px;
+    padding:18px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    font-size:16px;
+    resize:none;
+    line-height:1.8;
+    transition:.3s;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 20px rgba(37,99,235,.25);
+}
+
+/* Ask Button */
+
+#submitBtn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#submitBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(37,99,235,.35);
+}
+
+/* Chat History */
+
+.chat-container{
+    margin-top:45px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+/* Message */
+
+.message{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+}
+
+/* User Message */
+
+.user{
+    flex-direction:row-reverse;
+}
+
+/* Avatar */
+
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    flex-shrink:0;
     color:white;
 }
+
+.user .avatar{
+    background:#2563eb;
+}
+
+.bot .avatar{
+    background:#16a34a;
+}
+
+/* Chat Bubble */
+
+.bubble{
+    flex:1;
+    background:#ffffff;
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.user .bubble{
+    background:#2563eb;
+    color:white;
+}
+
+.bot .bubble{
+    background:#f8fafc;
+}
+
+.bubble:hover{
+    transform:translateY(-3px);
+}
+
+.bubble h4{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+/* Answer */
+
+pre{
+    white-space:pre-wrap;
+    font-size:16px;
+    line-height:1.8;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* Buttons */
 
 .buttons{
     display:flex;
     gap:10px;
+    margin-top:20px;
     flex-wrap:wrap;
-    margin-top:15px;
 }
 
 .buttons button{
     width:auto;
     padding:10px 18px;
-    margin:0;
-}
-
-.header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.container{
-    animation:slideUp .7s ease;
-}
-
-@keyframes slideUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-textarea{
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
     transition:.3s;
 }
 
-textarea:focus{
-    box-shadow:0 0 12px rgba(11,94,215,.35);
+.buttons button:hover{
+    background:#1d4ed8;
 }
 
-select{
-    transition:.3s;
+/* Loading */
+
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:25px;
+    font-size:18px;
+    color:#2563eb;
 }
 
-select:hover{
-    border-color:#0B5ED7;
-}
+/* Dark Mode */
 
-footer{
-    background:#0B5ED7;
-    color:white;
-    margin-top:40px;
-    padding:25px;
-}
-
-.dark .card{
-    background:#2d2d2d;
+body.dark{
+    background:#111827;
     color:white;
 }
 
-.dark .card:hover{
+body.dark .container{
+    background:#1f2937;
+}
+
+body.dark label{
+    color:#93c5fd;
+}
+
+body.dark textarea,
+body.dark select{
+    background:#374151;
+    color:white;
+    border:1px solid #4b5563;
+}
+
+body.dark .bubble{
+    background:#374151;
+    color:white;
+}
+
+body.dark .user .bubble{
     background:#2563eb;
 }
 
-.dark footer{
-    background:#111;
+body.dark pre{
+    color:white;
 }
+
+body.dark .buttons button{
+    background:#2563eb;
+}
+
+body.dark .buttons button:hover{
+    background:#1d4ed8;
+}
+
+/* Mobile */
 
 @media(max-width:768px){
 
-.features{
-    grid-template-columns:1fr;
+.container{
+    width:95%;
+    padding:20px;
+}
+
+.message{
+    flex-direction:column;
+}
+
+.user{
+    flex-direction:column;
+}
+
+.avatar{
+    margin-bottom:10px;
 }
 
 .buttons{
@@ -113,145 +485,574 @@ footer{
 }
 
 }
-/* ============================= */
-/* Build Web Interface */
-/* ============================= */
+/* ================================================= */
+/* PART 3 - Premium AI Experience */
+/* ================================================= */
 
-.hero{
-    width:85%;
-    max-width:1100px;
-    margin:30px auto;
-    text-align:center;
+/* Smooth page animation */
+
+body{
+    animation:pageFade .6s ease;
 }
 
-.hero h2{
-    font-size:36px;
-    color:#0B5ED7;
-    margin-bottom:15px;
+@keyframes pageFade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.hero p{
-    font-size:18px;
-    line-height:1.8;
-    color:#555;
-    margin-bottom:30px;
-}
-
-.hero-features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
+/* Hero Cards Animation */
 
 .hero-card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    animation:cardFade .8s ease;
+}
+
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Better Hero Card */
+
+.hero-card{
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.hero-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.4),
+    transparent);
+
+    transition:.7s;
+
+}
+
+.hero-card:hover::before{
+
+    left:100%;
+
+}
+
+/* Container */
+
+.container{
+
+    transition:.35s;
+
+}
+
+.container:hover{
+
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+}
+
+/* Chat Bubble Animation */
+
+.message{
+
+    animation:messageFade .5s ease;
+
+}
+
+@keyframes messageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Avatar */
+
+.avatar{
+
     transition:.3s;
+
 }
 
-.hero-card:hover{
-    background:#0B5ED7;
-    color:white;
-    transform:translateY(-5px);
+.avatar:hover{
+
+    transform:rotate(10deg) scale(1.08);
+
 }
 
-.dark .hero p{
-    color:#ddd;
+/* Bubble */
+
+.bubble{
+
+    transition:.35s;
+
 }
 
-.dark .hero-card{
-    background:#2d2d2d;
-    color:white;
+.bubble:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
 }
 
-.dark .hero-card:hover{
+/* Submit Button */
+
+#submitBtn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+#submitBtn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+#submitBtn:hover::before{
+
+    left:100%;
+
+}
+
+/* Copy Buttons */
+
+.buttons button{
+
+    transition:.3s;
+
+}
+
+.buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Loading Spinner */
+
+.loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:20px;
+
+    font-weight:bold;
+
+}
+
+.loader{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:4px solid #ddd;
+
+    border-top:4px solid #2563eb;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
     background:#2563eb;
-}
-/* ========================= */
-/* Complete Dark Mode */
-/* ========================= */
 
-body.dark{
-    background:#121212;
-    color:#ffffff;
+    border-radius:20px;
+
 }
 
-body.dark .header{
-    background:#1b1b1b;
+::-webkit-scrollbar-track{
+
+    background:#f1f5f9;
+
 }
 
-body.dark .hero{
-    background:#121212;
+/* Footer */
+
+footer{
+
+    margin-top:70px;
+
+    padding:35px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:white;
+
+    text-align:center;
+
 }
 
-body.dark .hero h2{
-    color:#66b3ff;
+footer p{
+
+    margin:8px;
+
 }
 
-body.dark .hero p{
-    color:#dddddd;
-}
+/* Premium Dark Mode */
 
 body.dark .hero-card{
-    background:#2b2b2b;
-    color:#ffffff;
+
+    background:#1f2937;
+
 }
 
 body.dark .hero-card:hover{
+
     background:#2563eb;
-    color:white;
+
 }
 
 body.dark .container{
-    background:#1e1e1e;
+
+    background:#1f2937;
+
+}
+
+body.dark .loading{
+
     color:white;
+
 }
 
-body.dark label{
-    color:white;
+body.dark ::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+/* ================================================= */
+/* PART 4 - AI Assistant Experience */
+/* ================================================= */
+
+/* AI Prompt Suggestions */
+
+.suggestion-container{
+    width:92%;
+    max-width:900px;
+    margin:20px auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
 }
 
-body.dark textarea,
-body.dark select{
-    background:#2d2d2d;
-    color:white;
-    border:1px solid #555;
+.suggestion{
+    background:#ffffff;
+    padding:14px 22px;
+    border-radius:30px;
+    border:1px solid #e5e7eb;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+    font-weight:500;
 }
 
-body.dark textarea::placeholder{
-    color:#bbbbbb;
-}
-
-body.dark .bubble{
-    background:#2d2d2d;
-    color:white;
-}
-
-body.dark .bubble h4{
-    color:#66b3ff;
-}
-
-body.dark button{
+.suggestion:hover{
     background:#2563eb;
     color:white;
+    transform:translateY(-3px);
 }
 
-body.dark button:hover{
-    background:#1d4ed8;
+/* Welcome Card */
+
+.welcome-card{
+
+    width:92%;
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    text-align:center;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
 }
 
-body.dark footer{
-    background:#111111;
+.welcome-card h2{
+
+    color:#2563eb;
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/* Chat Animation */
+
+.chat-container{
+
+    animation:fadeChat .6s ease;
+
+}
+
+@keyframes fadeChat{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Floating Buttons */
+
+.top-buttons{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    z-index:999;
+
+}
+
+.top-buttons button{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+/* Better Input */
+
+textarea{
+
+    background:#fafafa;
+
+}
+
+textarea::placeholder{
+
+    color:#999;
+
+}
+
+/* Better Select */
+
+select{
+
+    background:#fafafa;
+
+}
+
+/* Answer Block */
+
+pre{
+
+    background:#f8fafc;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    border-left:5px solid #2563eb;
+
+}
+
+/* Better Footer */
+
+footer{
+
+    font-size:15px;
+
+    letter-spacing:.4px;
+
+}
+
+/* Dark Mode */
+
+body.dark .welcome-card{
+
+    background:#1f2937;
+
+}
+
+body.dark .welcome-card p{
+
+    color:#d1d5db;
+
+}
+
+body.dark .suggestion{
+
+    background:#1f2937;
+
     color:white;
+
+    border:1px solid #374151;
+
+}
+
+body.dark .suggestion:hover{
+
+    background:#2563eb;
+
 }
 
 body.dark pre{
-    color:white;
+
+    background:#111827;
+
+    border-left:5px solid #3b82f6;
+
 }
 
-body.dark .top-buttons{
-    background:#121212;
+/* Responsive */
+
+@media(max-width:768px){
+
+.welcome-card{
+
+padding:25px;
+
+}
+
+.welcome-card h2{
+
+font-size:30px;
+
+}
+
+.top-buttons{
+
+right:15px;
+
+bottom:15px;
+
+}
+
 }
