@@ -1,45 +1,27 @@
+import os
 import google.generativeai as genai
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, Request, Form
-from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
-
-# -----------------------------
-# FastAPI App
-# -----------------------------
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
-# -----------------------------
-# Gemini API Configuration
-# -----------------------------
-
-from dotenv import load_dotenv
-import os
-
+# Gemini API
 load_dotenv()
-
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
 model = genai.GenerativeModel("gemini-2.0-flash")
 
-# -----------------------------
 # Static & Templates
-# -----------------------------
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 templates = Jinja2Templates(directory="templates")
 
-# -----------------------------
 # Chat History
-# -----------------------------
-
 history = []
 
-# -----------------------------
-# Home Page
-# -----------------------------
+# ---------------- Home ----------------
 
 @app.get("/")
 def home(request: Request):
@@ -53,11 +35,7 @@ def home(request: Request):
         }
     )
 
-# -----------------------------
-# Ask EduGenie
-# -----------------------------
-
-from fastapi import Form
+# ---------------- Ask ----------------
 
 @app.post("/ask")
 def ask(
@@ -65,6 +43,7 @@ def ask(
     task: str = Form(...),
     question: str = Form(...)
 ):
+
     try:
 
         prompt = f"""
@@ -74,14 +53,11 @@ Learning Task:
 {task}
 
 Rules:
-
 1. Explain in simple English.
 2. Use headings.
 3. Use bullet points.
 4. Give one real-life example.
 5. End with a short summary.
-6. Keep the answer neat.
-7. Don't use difficult words.
 
 Student Question:
 
@@ -92,44 +68,35 @@ Student Question:
 
         answer = response.text
 
-    except Exception:
+    except Exception as e:
+
+        print(e)
 
         answer = """
-⚠️ Gemini API quota exceeded or AI service is unavailable.
+⚠️ Gemini API quota exceeded.
 
-Please try again after some time.
-
-If the problem continues, use another API key.
+Please try again later or use a new Gemini API key.
 """
 
-    # Save Chat
-
-    history.append(
-        {
-            "question": question,
-            "answer": answer
-        }
-    )
+    history.append({
+        "question": question,
+        "answer": answer
+    })
 
     return templates.TemplateResponse(
         request=request,
         name="index.html",
         context={
             "request": request,
-            "task": task,
-            "question": question,
-            "answer": answer,
             "history": history
         }
     )
 
-# -----------------------------
-# Clear Chat
-# -----------------------------
-
-from fastapi.responses import RedirectResponse
+# ---------------- Clear ----------------
 
 @app.get("/clear")
 def clear():
+
     history.clear()
-    return RedirectResponse(url="/", status_code=303)
+
+    return RedirectResponse("/", status_code=303)

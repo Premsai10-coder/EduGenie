@@ -62,3 +62,26 @@ Set up the EduGenie AI learning assistant using FastAPI and Google Gemini.
 - Google Gemini API
 - Jinja2
 - HTML/CSS
+
+# Epic 2 - Frontend Development
+
+## Objective
+Develop a responsive and user-friendly interface for EduGenie using HTML, CSS, JavaScript, and FastAPI templates.
+
+## Features Completed
+- Responsive HTML interface
+- Modern CSS styling
+- Dark Mode
+- Loading animation
+- Copy Answer feature
+- Download Notes feature
+- Clear Chat functionality
+- Chat history display
+- Mobile responsive design
+
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+- Jinja2 Templates
+- FastAPI
