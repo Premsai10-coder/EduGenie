@@ -22,7 +22,41 @@
 <p>Google Gemini Powered AI Learning Assistant</p>
 
 </header>
+<section class="hero">
 
+    <h2>Welcome to EduGenie</h2>
+
+    <p>
+        EduGenie is an AI-powered learning assistant that helps students
+        understand concepts, answer questions, generate quizzes, summarize
+        study material, and provide personalized learning recommendations.
+    </p>
+
+    <div class="hero-features">
+
+        <div class="hero-card">
+            💡 Question Answering
+        </div>
+
+        <div class="hero-card">
+            📖 Concept Explanation
+        </div>
+
+        <div class="hero-card">
+            📝 Quiz Generation
+        </div>
+
+        <div class="hero-card">
+            📄 Text Summarization
+        </div>
+
+        <div class="hero-card">
+            📚 Learning Recommendations
+        </div>
+
+    </div>
+
+</section>
 <div class="top-buttons">
 
 <button onclick="darkMode()">
@@ -35,19 +69,6 @@
 
 </div>
 
-<div class="features">
-
-<div class="card">💡 Question Answering</div>
-
-<div class="card">📖 Concept Explanation</div>
-
-<div class="card">📝 Quiz Generator</div>
-
-<div class="card">📚 Learning Path</div>
-
-<div class="card">📄 Summarizer</div>
-
-</div>
 
 <div class="container">
 
@@ -173,9 +194,17 @@ btn.disabled=true;
 
 function darkMode(){
 
-document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("theme","dark");
+    }else{
+        localStorage.setItem("theme","light");
+    }
 
 }
+
+
 
 function copyAnswer(){
 
@@ -210,8 +239,18 @@ a.click();
 }
 
 }
+window.onload = function(){
+
+    const theme = localStorage.getItem("theme");
+
+    if(theme === "dark"){
+        document.body.classList.add("dark");
+    }
+
+}
 
 </script>
+
 
 </body>
 

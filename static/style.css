@@ -113,3 +113,145 @@ footer{
 }
 
 }
+/* ============================= */
+/* Build Web Interface */
+/* ============================= */
+
+.hero{
+    width:85%;
+    max-width:1100px;
+    margin:30px auto;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:36px;
+    color:#0B5ED7;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:30px;
+}
+
+.hero-features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.hero-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    font-weight:bold;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.hero-card:hover{
+    background:#0B5ED7;
+    color:white;
+    transform:translateY(-5px);
+}
+
+.dark .hero p{
+    color:#ddd;
+}
+
+.dark .hero-card{
+    background:#2d2d2d;
+    color:white;
+}
+
+.dark .hero-card:hover{
+    background:#2563eb;
+}
+/* ========================= */
+/* Complete Dark Mode */
+/* ========================= */
+
+body.dark{
+    background:#121212;
+    color:#ffffff;
+}
+
+body.dark .header{
+    background:#1b1b1b;
+}
+
+body.dark .hero{
+    background:#121212;
+}
+
+body.dark .hero h2{
+    color:#66b3ff;
+}
+
+body.dark .hero p{
+    color:#dddddd;
+}
+
+body.dark .hero-card{
+    background:#2b2b2b;
+    color:#ffffff;
+}
+
+body.dark .hero-card:hover{
+    background:#2563eb;
+    color:white;
+}
+
+body.dark .container{
+    background:#1e1e1e;
+    color:white;
+}
+
+body.dark label{
+    color:white;
+}
+
+body.dark textarea,
+body.dark select{
+    background:#2d2d2d;
+    color:white;
+    border:1px solid #555;
+}
+
+body.dark textarea::placeholder{
+    color:#bbbbbb;
+}
+
+body.dark .bubble{
+    background:#2d2d2d;
+    color:white;
+}
+
+body.dark .bubble h4{
+    color:#66b3ff;
+}
+
+body.dark button{
+    background:#2563eb;
+    color:white;
+}
+
+body.dark button:hover{
+    background:#1d4ed8;
+}
+
+body.dark footer{
+    background:#111111;
+    color:white;
+}
+
+body.dark pre{
+    color:white;
+}
+
+body.dark .top-buttons{
+    background:#121212;
+}
