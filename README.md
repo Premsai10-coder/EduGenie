@@ -66,22 +66,22 @@ Set up the EduGenie AI learning assistant using FastAPI and Google Gemini.
 # Epic 2 - Frontend Development
 
 ## Objective
-Develop a responsive and user-friendly interface for EduGenie using HTML, CSS, JavaScript, and FastAPI templates.
+Develop a responsive and interactive frontend for EduGenie using HTML, CSS, JavaScript, and FastAPI templates.
 
 ## Features Completed
-- Responsive HTML interface
-- Modern CSS styling
+- Modern responsive user interface
+- AI chat interface
 - Dark Mode
+- Clear Chat
 - Loading animation
 - Copy Answer feature
 - Download Notes feature
-- Clear Chat functionality
 - Chat history display
-- Mobile responsive design
+- Responsive mobile design
 
 ## Technologies Used
 - HTML5
 - CSS3
 - JavaScript
-- Jinja2 Templates
 - FastAPI
+- Jinja2 Templates
