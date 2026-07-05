@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - AI Learning Assistant</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 EduGenie</h1>
+    <p>Your AI Powered Learning Assistant</p>
+</header>
+
+<div class="top-buttons">
+    <button type="button" onclick="darkMode()">🌙 Dark Mode</button>
+    <button type="button" onclick="window.location='/clear'">🗑 Clear Chat</button>
+</div>
+
+<div class="container">
+
+    <form id="chatForm" action="/ask" method="post">
+
+        <label>Select Learning Task</label>
+
+        <select name="task" required>
+            <option value="Question Answering">Question Answering</option>
+            <option value="Concept Explanation">Concept Explanation</option>
+            <option value="Quiz Generation">Quiz Generation</option>
+            <option value="Summarization">Summarization</option>
+            <option value="Learning Path">Learning Path</option>
+        </select>
+
+        <label>Ask Your Question</label>
+
+        <textarea
+            name="question"
+            rows="6"
+            placeholder="Example: Explain Artificial Intelligence in simple words..."
+            required></textarea>
+
+        <button id="submitBtn" type="submit">
+    Ask EduGenie
+</button>
+
+    </form>
+
+    <div id="loading" style="display:none;">
+        🤖 EduGenie is thinking...
+    </div>
+
+    {% if history %}
+
+    <div class="chat-container">
+
+        {% for chat in history %}
+
+        <div class="message user">
+
+            <div class="avatar">🧑</div>
+
+            <div class="bubble">
+                <h4>You</h4>
+                <p>{{ chat.question }}</p>
+            </div>
+
+        </div>
+
+        <div class="message bot">
+
+            <div class="avatar">🤖</div>
+
+            <div class="bubble">
+
+                <h4>EduGenie</h4>
+
+                <pre id="answer">{{ chat.answer }}</pre>
+
+                <button onclick="copyAnswer()">📋 Copy Answer</button>
+
+                <button onclick="downloadNotes()">⬇ Download Notes</button>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<footer>
+    Developed using FastAPI + Gemini AI
+</footer>
+
+<script>
+
+const form = document.getElementById("chatForm");
+
+form.addEventListener("submit", function () {
+
+    document.getElementById("loading").style.display = "block";
+
+    const btn = document.getElementById("submitBtn");
+
+    btn.innerHTML = "🤖 Thinking...";
+
+    btn.disabled = true;
+
+});
+
+function darkMode() {
+    document.body.classList.toggle("dark");
+}
+
+function copyAnswer() {
+
+    const answer = document.getElementById("answer");
+
+    if(answer){
+        navigator.clipboard.writeText(answer.innerText);
+        alert("Answer Copied!");
+    }
+
+}
+
+function downloadNotes(){
+
+    const answer = document.getElementById("answer");
+
+    if(answer){
+
+        const blob = new Blob([answer.innerText], {type:"text/plain"});
+
+        const a = document.createElement("a");
+
+        a.href = URL.createObjectURL(blob);
+
+        a.download = "EduGenie_Notes.txt";
+
+        a.click();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
