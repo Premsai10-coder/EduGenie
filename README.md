@@ -63,48 +63,69 @@ Set up the EduGenie AI learning assistant using FastAPI and Google Gemini.
 - Jinja2
 - HTML/CSS
 
-# Epic 2 - Frontend Development
+# Epic 2 - Module Implementation
 
 ## Objective
-Develop a responsive and interactive frontend for EduGenie using HTML, CSS, JavaScript, and FastAPI templates.
+
+Implement the core AI learning modules of EduGenie to provide different learning services using Google Gemini AI.
+
+## Modules Implemented
+
+- Question Answering Module
+- Concept Explanation Module
+- Quiz Generation Module
+- Summarization Module
+- Learning Path Module
 
 ## Features Completed
-- Modern responsive user interface
-- AI chat interface
-- Dark Mode
-- Clear Chat
-- Loading animation
-- Copy Answer feature
-- Download Notes feature
-- Chat history display
-- Responsive mobile design
+
+- Created separate Python modules for each learning task.
+- Integrated all modules with Google Gemini AI.
+- Improved code organization using modular architecture.
+- Connected frontend with backend modules.
+- Implemented AI response generation for each selected task.
+- Added exception handling for API errors.
 
 ## Technologies Used
-- HTML5
-- CSS3
-- JavaScript
+
+- Python
+- Google Gemini API
 - FastAPI
-- Jinja2 Templates
 
 # Backend API with FastAPI
 
 ## Objective
-Develop a backend using FastAPI to process user requests, communicate with Google Gemini AI, and manage chat interactions.
+
+Develop a FastAPI backend to process user requests, communicate with Google Gemini AI, and manage chat interactions.
 
 ## Backend Features Completed
+
 - FastAPI application setup
-- Gemini AI API integration
-- POST API for user questions
-- GET API for homepage
-- Clear Chat endpoint
+- Google Gemini API integration
+- POST API endpoint for processing user questions
+- GET API endpoint for homepage
+- Dynamic Jinja2 template rendering
+- Static files configuration
 - Chat history management
-- Jinja2 template rendering
-- Static file serving
-- Environment variable support using .env
+- Clear Chat endpoint
+- Environment variable support using `.env`
+- Exception handling for API errors
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Load EduGenie homepage |
+| POST | `/ask` | Process user questions |
+| GET | `/clear` | Clear chat history |
 
 ## Technologies Used
-- FastAPI
+
 - Python
+- FastAPI
 - Google Gemini API
-- Jinja2
+- Jinja2 Templates
+- HTML
+- CSS
+- JavaScript
 - python-dotenv
