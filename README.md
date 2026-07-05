@@ -191,3 +191,78 @@ Integrate the frontend interface with the FastAPI backend to enable real-time co
 - JavaScript
 - Jinja2 Templates
 
+# Epic 4 - Local Deployment and Functional Testing
+
+## Objective
+
+Deploy the EduGenie Learning Assistant in a local development environment and perform functional testing to verify that all AI-powered educational modules work correctly through the FastAPI backend.
+
+---
+
+## Run Locally
+
+### Objective
+
+Execute the EduGenie application using FastAPI and Uvicorn to enable local development, testing, and real-time interaction.
+
+### Features Completed
+
+- Configured FastAPI application for local execution
+- Started the application using Uvicorn
+- Enabled automatic server reload using the `--reload` option
+- Successfully launched the local development server
+- Verified frontend and backend connectivity
+- Tested the application through a web browser
+- Confirmed successful communication with the Google Gemini API
+
+### Command Used
+
+```bash
+uvicorn app.main:app --reload
+```
+
+### Local Server URL
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Functional Testing
+
+### Objective
+
+Verify that all educational modules perform correctly and produce accurate AI-generated responses under normal user interactions.
+
+### Functional Tests Performed
+
+- Question Answering
+- Concept Explanation
+- Quiz Generation
+- Text Summarization
+- Personalized Learning Path
+- Dark Mode
+- Clear Chat
+- Copy Answer
+- Download Notes
+- Chat History
+
+### Test Results
+
+| Module | Status |
+|---------|--------|
+| Question Answering | ✅ Passed |
+| Concept Explanation | ✅ Passed |
+| Quiz Generation | ✅ Passed |
+| Text Summarization | ✅ Passed |
+| Learning Path | ✅ Passed |
+| Dark Mode | ✅ Passed |
+| Copy Answer | ✅ Passed |
+| Download Notes | ✅ Passed |
+| Clear Chat | ✅ Passed |
+| Chat History | ✅ Passed |
+
+### Outcome
+
+The EduGenie Learning Assistant was successfully executed in the local development environment. All frontend components communicated seamlessly with the FastAPI backend, and Google Gemini AI generated responses for each educational module. Functional testing confirmed that every feature operated correctly, providing a smooth and interactive learning experience.
