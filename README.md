@@ -129,3 +129,41 @@ Develop a FastAPI backend to process user requests, communicate with Google Gemi
 - CSS
 - JavaScript
 - python-dotenv
+
+# Epic 3 - Build Web Interface
+
+## Objective
+
+Develop a modern, responsive, and user-friendly web interface for EduGenie using HTML, CSS, and Jinja2 templates. The interface enables students to access AI-powered educational features through a single integrated platform.
+
+## Features Completed
+
+- Responsive web interface using HTML5 and CSS3
+- Welcome section introducing EduGenie
+- Question Answering interface
+- Concept Explanation interface
+- Quiz Generation interface
+- Text Summarization interface
+- Personalized Learning Path interface
+- Learning task selection dropdown
+- User input form with textarea
+- AI response display section
+- Chat history display using Jinja2 templates
+- Dark Mode support
+- Clear Chat functionality
+- Copy Answer feature
+- Download Notes feature
+- Loading animation during AI response generation
+- Mobile-friendly responsive design
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- FastAPI
+- Jinja2 Templates
+
+## Outcome
+
+Successfully developed a responsive and interactive frontend for EduGenie that provides a clean and intuitive user experience for accessing multiple AI-powered educational services.
