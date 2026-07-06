@@ -102,6 +102,25 @@ Set up the EduGenie AI learning assistant using FastAPI and Google Gemini.
 - Jinja2
 - HTML/CSS
 
+## Pre-Requisites
+
+Before running EduGenie, ensure the following software is installed:
+
+- Python 3.10+
+- FastAPI
+- Uvicorn
+- Google Gemini API Key
+- Jinja2
+- HTML, CSS, JavaScript
+- Git
+- Visual Studio Code
+
+### Installation
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
 # Epic 2 - Module Implementation
 
 ## Objective
