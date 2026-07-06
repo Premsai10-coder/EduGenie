@@ -38,7 +38,46 @@ http://127.0.0.1:8000
 
 **Bora Prem Sai**
 
+# ER Diagram
 
+## Overview
+
+The Entity Relationship Diagram (ERD) represents the logical database design of the EduGenie Learning Assistant. It illustrates the entities, their attributes, and the relationships required to support AI-powered educational services such as Question Answering, Concept Explanation, Quiz Generation, Text Summarization, and Personalized Learning Recommendations.
+
+## Entities
+
+The ER Diagram consists of six core entities:
+
+- USER
+- USER_QUERY
+- AI_RESPONSE
+- QUIZ
+- SUMMARY
+- LEARNING_PATH
+
+## Relationships
+
+- One USER can submit multiple USER_QUERY records.
+- Each USER_QUERY generates one AI_RESPONSE.
+- One USER_QUERY can generate multiple QUIZ records.
+- One USER_QUERY can generate multiple SUMMARY records.
+- One USER_QUERY can generate multiple LEARNING_PATH records.
+
+## Database Design
+
+The database follows proper normalization principles by separating users, educational requests, AI-generated responses, quizzes, summaries, and learning recommendations into individual entities. Primary and Foreign Keys maintain data integrity and support scalability.
+
+## Future Scope
+
+The ER design supports future enhancements including:
+
+- User Authentication
+- Student Progress Tracking
+- Persistent Chat History
+- Cloud Database Integration
+- Multilingual Learning
+- AI Analytics Dashboard
+- Mobile Application Support
 
 ## Epic 1 - Model Selection and Architecture
 

@@ -1056,3 +1056,52 @@ bottom:15px;
 }
 
 }
+/* ========================= */
+/* Professional Footer */
+/* ========================= */
+
+.footer{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    text-align:center;
+    padding:40px 20px;
+    margin-top:60px;
+}
+
+.footer h3{
+    color:#ffffff;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:20px;
+    letter-spacing:.5px;
+}
+
+.footer-text{
+    color:#f8fafc;
+    font-size:18px;
+    font-weight:500;
+    opacity:1;
+    margin:10px 0;
+}
+
+.footer-author{
+    color:#ffffff;
+    font-size:20px;
+    font-weight:600;
+    margin-top:15px;
+}
+
+.footer-author strong{
+    color:#ffffff;
+    font-weight:700;
+}
+body.dark .footer{
+    background:linear-gradient(135deg,#1e3a8a,#172554);
+}
+
+body.dark .footer-text{
+    color:#f1f5f9;
+}
+
+body.dark .footer-author{
+    color:#ffffff;
+}
