@@ -243,15 +243,23 @@ Integrate the frontend interface with the FastAPI backend to enable real-time co
 - Jinja2 template rendering
 - Static file support
 
-## Technologies Used
+## AI Model
 
-- Python
-- FastAPI
-- Google Gemini API
-- HTML5
-- CSS3
-- JavaScript
-- Jinja2 Templates
+EduGenie uses **Google Gemini 2.5 Flash** as its primary Large Language Model (LLM) to power intelligent educational interactions.
+
+### Model Capabilities
+
+- Intelligent Question Answering
+- Concept Explanation
+- Quiz Generation
+- Educational Text Summarization
+- Personalized Learning Recommendations
+- Fast Response Generation
+- Natural Language Understanding
+
+### Model Used
+
+- **Google Gemini 2.5 Flash**
 
 # Epic 4 - Local Deployment and Functional Testing
 
