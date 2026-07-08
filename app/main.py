@@ -1,6 +1,6 @@
 import os
 import google.generativeai as genai
-from google.api_core import exceptions  # Imported to catch specific API errors
+from google.api_core import exceptions
 
 from dotenv import load_dotenv
 
@@ -16,7 +16,7 @@ from fastapi.templating import Jinja2Templates
 app = FastAPI()
 
 # ----------------------------------------
-# Gemini API Configuration
+# Gemini Configuration
 # ----------------------------------------
 
 load_dotenv()
@@ -24,7 +24,7 @@ load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not API_KEY:
-    print("ERROR: GEMINI_API_KEY not found in .env file")
+    raise ValueError("GEMINI_API_KEY not found in .env file")
 
 genai.configure(api_key=API_KEY)
 
@@ -45,7 +45,177 @@ templates = Jinja2Templates(directory="templates")
 history = []
 
 # ----------------------------------------
-# Home Page
+# Prompt Generator
+# ----------------------------------------
+
+def generate_prompt(task, question):
+
+    if task == "Question Answering":
+
+        return f"""
+You are EduGenie, an AI Learning Assistant.
+
+Answer ONLY the student's question.
+
+Format:
+
+# Answer
+
+# Key Points
+
+# Real-Life Example
+
+# Summary
+
+Rules:
+
+- Explain in simple English.
+- Use headings.
+- Use bullet points.
+- Do NOT generate quizzes.
+- Do NOT generate learning paths.
+- Do NOT ask additional questions.
+
+Question:
+
+{question}
+"""
+
+    elif task == "Concept Explanation":
+
+        return f"""
+You are EduGenie.
+
+Explain the topic like an expert teacher.
+
+Format:
+
+# Introduction
+
+# Detailed Explanation
+
+# Key Concepts
+
+# Applications
+
+# Advantages
+
+# Real-Life Example
+
+# Summary
+
+Topic:
+
+{question}
+"""
+
+    elif task == "Quiz Generation":
+
+        return f"""
+You are EduGenie, an AI Quiz Generator.
+
+Generate exactly 5 multiple-choice questions based on the given topic.
+
+Instructions:
+
+- Create exactly 5 questions.
+- Each question must have 4 options.
+- Label the options as A), B), C), and D).
+- Mention ONLY one correct answer.
+- Give a one-line explanation for the correct answer.
+- Keep the questions suitable for students.
+- Do NOT generate paragraphs.
+- Do NOT generate markdown tables.
+- Do NOT generate additional notes.
+
+Use the following format exactly:
+
+Q1: <Question>
+
+A) Option A
+B) Option B
+C) Option C
+D) Option D
+
+Correct Answer: A
+
+Explanation: <One-line explanation>
+
+-----------------------------------
+
+Q2: <Question>
+
+A) Option A
+B) Option B
+C) Option C
+D) Option D
+
+Correct Answer: C
+
+Explanation: <One-line explanation>
+
+-----------------------------------
+
+Repeat the same format until Question 5.
+
+Topic:
+
+{question}
+"""
+
+    elif task == "Summarization":
+
+        return f"""
+You are EduGenie.
+
+Summarize the following content.
+
+Format:
+
+# Summary
+
+# Important Points
+
+# Key Takeaways
+
+Content:
+
+{question}
+"""
+
+    elif task == "Learning Path":
+
+        return f"""
+You are EduGenie.
+
+Create a complete learning roadmap.
+
+Include:
+
+# Beginner
+
+# Intermediate
+
+# Advanced
+
+# Projects
+
+# Best Resources
+
+# Timeline
+
+Topic:
+
+{question}
+"""
+
+    else:
+
+        return question
+
+
+# ----------------------------------------
+# Home
 # ----------------------------------------
 
 @app.get("/")
@@ -60,6 +230,7 @@ def home(request: Request):
         }
     )
 
+
 # ----------------------------------------
 # Ask EduGenie
 # ----------------------------------------
@@ -71,67 +242,88 @@ def ask(
     question: str = Form(...)
 ):
 
-    prompt = f"""
-You are EduGenie, an AI-powered Learning Assistant.
+    question = question.strip()
 
-Task:
-{task}
+    if question == "":
 
-Instructions:
-1. Explain in simple English.
-2. Use proper headings.
-3. Use bullet points.
-4. Give one real-world example.
-5. End with a short summary.
+        return templates.TemplateResponse(
+            request=request,
+            name="index.html",
+            context={
+                "request": request,
+                "history": history
+            }
+        )
 
-Student Question:
-{question}
-"""
+    if len(question) > 4000:
+        question = question[:4000]
+
+    prompt = generate_prompt(task, question)
 
     try:
+
         response = model.generate_content(prompt)
 
-        if hasattr(response, "text") and response.text:
-            answer = response.text
+        if response.text:
+
+            answer = response.text.strip()
+
         else:
-            answer = "⚠️ No text response received from Gemini. The content might have been flagged or blocked."
 
-    except exceptions.ResourceExhausted as e:
-        print("Gemini Error: Rate limit or quota exceeded.", e)
+            answer = "⚠️ Gemini returned an empty response."
+
+    except exceptions.ResourceExhausted:
+
         answer = """
-⚠️ **Rate Limit Exceeded (Quota Blocked)**
+# ⚠️ Gemini API Quota Reached
 
-EduGenie is resting for a moment! The free tier rate limit has been reached. 
+EduGenie is working correctly.
 
-**What to do:**
-• Please wait 30–60 seconds and try submitting again.
-• If you are the developer, check your [Google AI Studio Console](https://aistudio.google.com/) to see if your daily free tier tokens are fully exhausted.
+The free Gemini API quota has been exhausted.
+
+Please try one of the following:
+
+• Wait for the quota to reset.
+
+• Create another Gemini API Key.
+
+• Enable billing in Google AI Studio.
+
 """
 
-    except exceptions.InvalidArgument as e:
-        print("Gemini Error: Invalid API key or configuration.", e)
-        answer = "⚠️ **Configuration Error:** The API key provided seems invalid. Please check your `.env` file."
+    except exceptions.InvalidArgument:
+
+        answer = """
+# ❌ Invalid Gemini API Key
+
+Please check your .env file.
+
+Example:
+
+GEMINI_API_KEY=YOUR_API_KEY
+
+Restart the server after updating the API key.
+"""
 
     except Exception as e:
-        print("Gemini Error:", e)
-        answer = f"""
-⚠️ Unable to generate a response.
 
-**Reason:**
+        print(e)
+
+        answer = f"""
+# ⚠️ Unexpected Error
+
 {str(e)}
 
-**Possible causes:**
-• API quota fully exhausted
-• Temporary internet connection issue
-• Service disruption
-
-Please try again in a few moments.
+Please try again later.
 """
 
-    history.append({
-        "question": question,
-        "answer": answer
-    })
+    history.append(
+        {
+            "task": task,
+            "question": question,
+            "answer": answer
+        }
+    )
 
     return templates.TemplateResponse(
         request=request,
@@ -142,6 +334,7 @@ Please try again in a few moments.
         }
     )
 
+
 # ----------------------------------------
 # Clear Chat
 # ----------------------------------------
@@ -151,4 +344,4 @@ def clear():
 
     history.clear()
 
-    return RedirectResponse(url="/", status_code=303)
+    return RedirectResponse("/", status_code=303)

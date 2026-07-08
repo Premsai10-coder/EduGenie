@@ -111,47 +111,59 @@ required></textarea>
 
 {% for chat in history %}
 
+<!-- User Message -->
+
 <div class="message user">
 
-<div class="avatar">
-🧑
+    <div class="avatar">
+        🧑
+    </div>
+
+    <div class="bubble">
+
+        <span class="task-badge">
+            {{ chat.task }}
+        </span>
+
+        <h4>You</h4>
+
+        <p>{{ chat.question }}</p>
+
+    </div>
+
 </div>
 
-<div class="bubble">
-
-<h4>You</h4>
-
-<p>{{ chat.question }}</p>
-
-</div>
-
-</div>
+<!-- AI Message -->
 
 <div class="message bot">
 
-<div class="avatar">
-🤖
-</div>
+    <div class="avatar">
+        🤖
+    </div>
 
-<div class="bubble">
+    <div class="bubble">
 
-<h4>EduGenie</h4>
+        <h4>EduGenie</h4>
+
+        <div class="ai-answer">
 
 <pre id="answer">{{ chat.answer }}</pre>
 
-<div class="buttons">
-
-<button onclick="copyAnswer()">
-📋 Copy
-</button>
-
-<button onclick="downloadNotes()">
-⬇ Download
-</button>
-
 </div>
 
-</div>
+        <div class="buttons">
+
+            <button onclick="copyAnswer()">
+                📋 Copy
+            </button>
+
+            <button onclick="downloadNotes()">
+                ⬇ Download
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 

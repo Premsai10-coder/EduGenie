@@ -1105,3 +1105,82 @@ body.dark .footer-text{
 body.dark .footer-author{
     color:#ffffff;
 }
+/* ===================================== */
+/* Task Badge */
+/* ===================================== */
+
+.task-badge{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+/* ================= AI Answer ================= */
+
+.ai-answer{
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    margin-top:12px;
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.dark .ai-answer{
+
+    background:#202124;
+
+    color:white;
+
+}
+pre{
+
+    font-family:Segoe UI;
+
+    white-space:pre-wrap;
+
+    word-wrap:break-word;
+
+    line-height:1.8;
+
+}
+.message.user .bubble{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+.dark .message.bot .bubble{
+
+    background:#1f2937;
+
+    color:white;
+
+}
