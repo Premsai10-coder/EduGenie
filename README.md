@@ -36,7 +36,7 @@ http://127.0.0.1:8000
 
 ## Author
 
-**Team member : Prem Sai Bora**
+**Prem Sai Bora**
 
 # ER Diagram
 
