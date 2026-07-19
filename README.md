@@ -36,11 +36,7 @@ http://127.0.0.1:8000
 
 ## Author
 
-**Team Leader : Ogireddy Sravani
-  Team member : Chintala Vanitha
-  Team member : Veera VenkkateshhKottum
-  Team member : Sailakshmi Pattisabha
-  Team member : Prem Sai Bora**
+**Team member : Prem Sai Bora**
 
 # ER Diagram
 
